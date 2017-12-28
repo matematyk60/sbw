@@ -1,18 +1,12 @@
 package jaksiemasz.edu.shouter.api.request;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class AddShoutRequest {
     @NotNull
+    @Size(max = 140)
     private String content;
-
-    @JsonCreator
-    public AddShoutRequest(@JsonProperty(required = true, value = "content") String content) {
-        this.content = content;
-    }
 
     public String getContent() {
         return content;
