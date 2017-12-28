@@ -19,6 +19,6 @@ public class HelloWorldTests {
     @Test
     public void checkHelloWorld() {
         String body = restTemplate.getForObject("/", String.class);
-        assertThat(body).isEqualTo("Hello, worl0sd!");
+        assertThat(body).isEqualTo("Hello, world!");
     }
 }
