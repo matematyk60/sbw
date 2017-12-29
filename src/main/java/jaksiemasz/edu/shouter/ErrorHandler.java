@@ -1,9 +1,12 @@
 package jaksiemasz.edu.shouter;
 
+import jaksiemasz.edu.shouter.exceptions.NoSuchShoutException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class ErrorHandler {
@@ -16,5 +19,12 @@ public class ErrorHandler {
                 .getDefaultMessage();
 
         return new Error(message);
+    }
+
+    @ExceptionHandler(NoSuchShoutException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Error processMissingShoutError(NoSuchShoutException ex) {
+
+        return new Error(ex.getMessage());
     }
 }

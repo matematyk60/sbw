@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+import java.time.LocalDate;
 
 @Entity
 public class Shout {
@@ -16,11 +16,14 @@ public class Shout {
     @Size(max = 140)
     private String content;
 
+    private LocalDate date;
+
     public Shout(String content) {
         this.content = content;
     }
 
-    public Shout() {}
+    public Shout() {
+    }
 
     public long getId() {
         return id;
@@ -38,17 +41,12 @@ public class Shout {
         this.content = content;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Shout shout = (Shout) o;
-        return Objects.equals(content, shout.content);
+    public LocalDate getDate() {
+        return date;
     }
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(content);
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
+
 }
