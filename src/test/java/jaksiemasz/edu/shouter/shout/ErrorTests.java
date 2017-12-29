@@ -1,4 +1,4 @@
-package jaksiemasz.edu.shouter;
+package jaksiemasz.edu.shouter.shout;
 
 import jaksiemasz.edu.shouter.model.Shout;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -11,8 +11,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static jaksiemasz.edu.shouter.helper.MyAssertions.assertResponseStatusIs400BAD_REQUEST;
-import static jaksiemasz.edu.shouter.helper.MyAssertions.assertResponseStatusIs404NOT_FOUND;
+import static jaksiemasz.edu.shouter.helper.StatusAssertions.assertResponseStatusIs400BAD_REQUEST;
+import static jaksiemasz.edu.shouter.helper.StatusAssertions.assertResponseStatusIs404NOT_FOUND;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)

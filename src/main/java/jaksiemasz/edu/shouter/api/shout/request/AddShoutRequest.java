@@ -1,4 +1,4 @@
-package jaksiemasz.edu.shouter.api.request;
+package jaksiemasz.edu.shouter.api.shout.request;
 
 import jaksiemasz.edu.shouter.model.Shout;
 

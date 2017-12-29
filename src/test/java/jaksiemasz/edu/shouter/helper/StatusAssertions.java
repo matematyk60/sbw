@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MyAssertions {
+public class StatusAssertions {
     public static void assertResponseStatusIs200OK(ResponseEntity<?> response) {
         assertResponseStatusIsEqual(response, HttpStatus.OK);
     }

@@ -1,6 +1,6 @@
-package jaksiemasz.edu.shouter;
+package jaksiemasz.edu.shouter.shout;
 
-import jaksiemasz.edu.shouter.api.response.ShoutAddedResponse;
+import jaksiemasz.edu.shouter.api.shout.response.ShoutAddedResponse;
 import jaksiemasz.edu.shouter.model.Shout;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,8 +13,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
 
-import static jaksiemasz.edu.shouter.helper.MyAssertions.assertResponseStatusIs200OK;
-import static jaksiemasz.edu.shouter.helper.MyAssertions.assertResponseStatusIs201CREATED;
+import static jaksiemasz.edu.shouter.helper.StatusAssertions.assertResponseStatusIs200OK;
+import static jaksiemasz.edu.shouter.helper.StatusAssertions.assertResponseStatusIs201CREATED;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)

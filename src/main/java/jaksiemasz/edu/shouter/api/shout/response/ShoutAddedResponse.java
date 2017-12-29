@@ -1,4 +1,4 @@
-package jaksiemasz.edu.shouter.api.response;
+package jaksiemasz.edu.shouter.api.shout.response;
 
 public class ShoutAddedResponse {
     private long createdShoutId;

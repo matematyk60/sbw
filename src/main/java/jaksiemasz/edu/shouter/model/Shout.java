@@ -16,6 +16,8 @@ public class Shout {
     @Size(max = 140)
     private String content;
 
+    private String authorEmail;
+
     private LocalDate date;
 
     public Shout(String content) {
@@ -49,4 +51,11 @@ public class Shout {
         this.date = date;
     }
 
+    public String getAuthorEmail() {
+        return authorEmail;
+    }
+
+    public void setAuthorEmail(String authorEmail) {
+        this.authorEmail = authorEmail;
+    }
 }

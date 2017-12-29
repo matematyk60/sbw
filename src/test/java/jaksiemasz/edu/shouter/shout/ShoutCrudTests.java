@@ -1,6 +1,6 @@
-package jaksiemasz.edu.shouter;
+package jaksiemasz.edu.shouter.shout;
 
-import jaksiemasz.edu.shouter.api.response.ShoutAddedResponse;
+import jaksiemasz.edu.shouter.api.shout.response.ShoutAddedResponse;
 import jaksiemasz.edu.shouter.model.Shout;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
@@ -12,7 +12,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static jaksiemasz.edu.shouter.helper.MyAssertions.*;
+import static jaksiemasz.edu.shouter.helper.StatusAssertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)

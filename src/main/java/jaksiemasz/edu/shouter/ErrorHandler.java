@@ -1,6 +1,7 @@
 package jaksiemasz.edu.shouter;
 
 import jaksiemasz.edu.shouter.exceptions.NoSuchShoutException;
+import jaksiemasz.edu.shouter.exceptions.UserAlreadyExistsException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -24,6 +25,13 @@ public class ErrorHandler {
     @ExceptionHandler(NoSuchShoutException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public Error processMissingShoutError(NoSuchShoutException ex) {
+
+        return new Error(ex.getMessage());
+    }
+
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public Error processCreatingDuplicateUsers(UserAlreadyExistsException ex) {
 
         return new Error(ex.getMessage());
     }

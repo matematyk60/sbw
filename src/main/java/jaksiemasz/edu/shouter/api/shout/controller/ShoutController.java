@@ -1,7 +1,7 @@
-package jaksiemasz.edu.shouter.api.controller;
+package jaksiemasz.edu.shouter.api.shout.controller;
 
-import jaksiemasz.edu.shouter.api.request.AddShoutRequest;
-import jaksiemasz.edu.shouter.api.response.ShoutAddedResponse;
+import jaksiemasz.edu.shouter.api.shout.request.AddShoutRequest;
+import jaksiemasz.edu.shouter.api.shout.response.ShoutAddedResponse;
 import jaksiemasz.edu.shouter.exceptions.NoSuchShoutException;
 import jaksiemasz.edu.shouter.model.Shout;
 import jaksiemasz.edu.shouter.repository.ShoutRepository;
