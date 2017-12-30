@@ -26,8 +26,8 @@ public class UserService {
     private void checkForDuplicates(User user) {
         if(userRepository.existsByEmail(user.getEmail())) {
             throw new UserAlreadyExistsException("User with given email already exists");
-        } else if (userRepository.existsByNickname(user.getNickname())) {
-            throw new UserAlreadyExistsException("User with given nickname already exists");
+        } else if (userRepository.existsByUsername(user.getUsername())) {
+            throw new UserAlreadyExistsException("User with given username already exists");
         }
     }
 }

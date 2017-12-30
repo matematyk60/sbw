@@ -10,7 +10,7 @@ public class UserRegisterRequest {
 
     @NotNull
     @Size(min = 4, max = 16)
-    private String nickname;
+    private String username;
 
     @NotNull
     @Size(min = 6)
@@ -21,15 +21,15 @@ public class UserRegisterRequest {
     private String email;
 
     public User extractUser() {
-        return new User(nickname, email, password);
+        return new User(username, email, password);
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
