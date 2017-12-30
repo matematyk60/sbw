@@ -10,8 +10,21 @@ public class AddShoutRequest {
     @Size(max = 140)
     private String content;
 
+    public AddShoutRequest(String content) {
+        this.content = content;
+    }
+
+    public AddShoutRequest() {
+    }
+
     public void setContent(String content) {
         this.content = content;
+    }
+
+
+
+    public String getContent() {
+        return content;
     }
 
     public Shout extractShout() {

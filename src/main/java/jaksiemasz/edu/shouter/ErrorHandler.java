@@ -1,6 +1,7 @@
 package jaksiemasz.edu.shouter;
 
 import jaksiemasz.edu.shouter.exceptions.NoSuchShoutException;
+import jaksiemasz.edu.shouter.exceptions.UnauthorizedEditException;
 import jaksiemasz.edu.shouter.exceptions.UserAlreadyExistsException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
@@ -32,6 +33,13 @@ public class ErrorHandler {
     @ExceptionHandler(UserAlreadyExistsException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
     public Error processCreatingDuplicateUsers(UserAlreadyExistsException ex) {
+
+        return new Error(ex.getMessage());
+    }
+
+    @ExceptionHandler(UnauthorizedEditException.class)
+    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
+    public Error processUnauthorizedEdit(UnauthorizedEditException ex) {
 
         return new Error(ex.getMessage());
     }
