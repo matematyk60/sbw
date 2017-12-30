@@ -1,5 +1,8 @@
 package jaksiemasz.edu.shouter.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +11,8 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
+@Data
+@NoArgsConstructor
 public class Shout {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,40 +27,5 @@ public class Shout {
 
     public Shout(String content) {
         this.content = content;
-    }
-
-    public Shout() {
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public String getAuthorEmail() {
-        return authorEmail;
-    }
-
-    public void setAuthorEmail(String authorEmail) {
-        this.authorEmail = authorEmail;
     }
 }

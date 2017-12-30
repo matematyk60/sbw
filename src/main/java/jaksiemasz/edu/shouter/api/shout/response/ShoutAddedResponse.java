@@ -1,19 +1,14 @@
 package jaksiemasz.edu.shouter.api.shout.response;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 public class ShoutAddedResponse {
     private long createdShoutId;
 
-    public ShoutAddedResponse() {}
-
     public ShoutAddedResponse(long createdShoutId) {
-        this.createdShoutId = createdShoutId;
-    }
-
-    public long getCreatedShoutId() {
-        return createdShoutId;
-    }
-
-    public void setCreatedShoutId(long createdShoutId) {
         this.createdShoutId = createdShoutId;
     }
 }

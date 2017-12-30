@@ -1,13 +1,10 @@
 package jaksiemasz.edu.shouter;
 
+import lombok.Data;
+
+@Data
 public class Error {
-    private String message;
 
-    Error(String message) {
-        this.message = message;
-    }
+    private final String message;
 
-    public String getMessage() {
-        return message;
-    }
 }

@@ -22,7 +22,6 @@ public class UserService {
         userRepository.save(user);
     }
 
-
     private void checkForDuplicates(User user) {
         if(userRepository.existsByEmail(user.getEmail())) {
             throw new UserAlreadyExistsException("User with given email already exists");
