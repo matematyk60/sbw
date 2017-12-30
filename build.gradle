@@ -29,6 +29,6 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.6.6'
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
-	runtime('com.h2database:h2')
+	compile 'mysql:mysql-connector-java'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
