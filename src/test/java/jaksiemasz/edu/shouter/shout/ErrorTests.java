@@ -1,7 +1,7 @@
 package jaksiemasz.edu.shouter.shout;
 
+import jaksiemasz.edu.shouter.api.shout.request.AddShoutRequest;
 import jaksiemasz.edu.shouter.helper.WithAuthenticatedTemplate;
-import jaksiemasz.edu.shouter.model.Shout;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,26 +12,26 @@ import static jaksiemasz.edu.shouter.helper.StatusAssertions.assertResponseStatu
 
 public class ErrorTests extends WithAuthenticatedTemplate {
 
-    private Shout invalidShout;
+    private AddShoutRequest invalidShoutRequest;
 
     private static final String resource = "/shouts";
     private static final String tooLongContent = RandomStringUtils.randomAlphanumeric(141);
 
     @Before
     public void initShout() {
-        invalidShout = new Shout(tooLongContent);
+        invalidShoutRequest = new AddShoutRequest(tooLongContent);
     }
 
     @Test
     public void rejectRequestWithoutContent() {
-        ResponseEntity<Object> response = restTemplate.postForEntity(resource, new Shout(), Object.class);
+        ResponseEntity<Object> response = restTemplate.postForEntity(resource, new AddShoutRequest(), Object.class);
 
         assertResponseStatusIs400BAD_REQUEST(response);
     }
 
     @Test
     public void rejectRequestWithTooLongContent() {
-        ResponseEntity<Object> response = restTemplate.postForEntity(resource, invalidShout, Object.class);
+        ResponseEntity<Object> response = restTemplate.postForEntity(resource, invalidShoutRequest, Object.class);
 
         assertResponseStatusIs400BAD_REQUEST(response);
     }
@@ -44,4 +44,5 @@ public class ErrorTests extends WithAuthenticatedTemplate {
 
         assertResponseStatusIs404NOT_FOUND(response);
     }
+
 }

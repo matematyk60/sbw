@@ -13,7 +13,7 @@ import static jaksiemasz.edu.shouter.helper.StatusAssertions.assertResponseStatu
 import static jaksiemasz.edu.shouter.helper.StatusAssertions.assertResponseStatusIs201CREATED;
 import static org.junit.Assert.assertEquals;
 
-public class DateTests extends WithAuthenticatedTemplate {
+public class BodyTests extends WithAuthenticatedTemplate {
 
     private long createdShoutId;
 
@@ -40,5 +40,19 @@ public class DateTests extends WithAuthenticatedTemplate {
 
         assertEquals("Dates should be equal", LocalDate.now(), body.getDate());
     }
+
+    @Test
+    public void checkIfEmailIsValid() {
+        ResponseEntity<Shout> response = restTemplate.getForEntity(resource + "/{id}",
+                Shout.class, String.valueOf(createdShoutId));
+
+        assertResponseStatusIs200OK(response);
+
+        Shout body = response.getBody();
+
+        assertEquals("Email should be the same", randomEmail, body.getAuthorEmail());
+    }
+
+
 
 }

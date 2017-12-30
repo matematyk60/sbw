@@ -1,5 +1,6 @@
 package jaksiemasz.edu.shouter.shout;
 
+import jaksiemasz.edu.shouter.api.shout.request.AddShoutRequest;
 import jaksiemasz.edu.shouter.api.shout.response.ShoutAddedResponse;
 import jaksiemasz.edu.shouter.helper.WithAuthenticatedTemplate;
 import jaksiemasz.edu.shouter.model.Shout;
@@ -13,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ShoutCrudTests extends WithAuthenticatedTemplate {
 
-    private Shout validShout;
+    private AddShoutRequest validShoutRequest;
 
     private static final String validContent = RandomStringUtils.randomAlphanumeric(43);
 
@@ -21,12 +22,12 @@ public class ShoutCrudTests extends WithAuthenticatedTemplate {
 
     @Before
     public void initShout() {
-        validShout = new Shout(validContent);
+        validShoutRequest = new AddShoutRequest(validContent);
     }
 
     @Test
     public void addShoutTest() {
-        ResponseEntity<ShoutAddedResponse> response = restTemplate.postForEntity(resource, validShout, ShoutAddedResponse.class);
+        ResponseEntity<ShoutAddedResponse> response = restTemplate.postForEntity(resource, validShoutRequest, ShoutAddedResponse.class);
 
         assertResponseStatusIs201CREATED(response);
 
@@ -36,12 +37,12 @@ public class ShoutCrudTests extends WithAuthenticatedTemplate {
         assertResponseStatusIs200OK(getResponse);
 
         assertThat(getResponse.getBody().getContent())
-                .isEqualTo(validShout.getContent());
+                .isEqualTo(validShoutRequest.getContent());
     }
 
     @Test
     public void deleteShoutTest() {
-        ResponseEntity<ShoutAddedResponse> response = restTemplate.postForEntity(resource, validShout, ShoutAddedResponse.class);
+        ResponseEntity<ShoutAddedResponse> response = restTemplate.postForEntity(resource, validShoutRequest, ShoutAddedResponse.class);
 
         assertResponseStatusIs201CREATED(response);
 

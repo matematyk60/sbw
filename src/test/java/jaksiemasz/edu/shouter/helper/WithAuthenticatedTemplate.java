@@ -21,15 +21,19 @@ public class WithAuthenticatedTemplate {
     @Autowired
     protected TestRestTemplate restTemplate;
 
+    protected String randomEmail;
+    protected String randomNickname;
+    protected String randomPassword;
+
     private ResponseEntity<Object> response;
 
     @Before
     public void setUp() {
-        String randomEmail = randomAlphabetic(5) + "@" + randomAlphabetic(4) + ".com";
-        String randomNickname = randomAlphanumeric(5);
-        String randomPassword = randomAlphanumeric(8);
+        randomEmail = randomAlphabetic(5) + "@" + randomAlphabetic(4) + ".com";
+        randomNickname = randomAlphanumeric(5);
+        randomPassword = randomAlphanumeric(8);
 
-        UserRegisterRequest request = createRequest(randomEmail, randomNickname, randomPassword);
+        UserRegisterRequest request = createRequest();
 
         response = restTemplate.postForEntity("/users", request, Object.class);
 
@@ -41,7 +45,7 @@ public class WithAuthenticatedTemplate {
         assertResponseStatusIs201CREATED(response);
     }
 
-    private UserRegisterRequest createRequest(String randomEmail, String randomNickname, String randomPassword) {
+    private UserRegisterRequest createRequest() {
         UserRegisterRequest request = new UserRegisterRequest();
         request.setEmail(randomEmail);
         request.setUsername(randomNickname);
