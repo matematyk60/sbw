@@ -16,7 +16,7 @@ import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class WithAuthenticatedTemplate {
+public abstract class WithAuthenticatedTemplate {
 
     @Autowired
     protected TestRestTemplate restTemplate;
@@ -33,12 +33,9 @@ public class WithAuthenticatedTemplate {
 
         response = restTemplate.postForEntity("/users", request, Object.class);
 
-        restTemplate = restTemplate.withBasicAuth(randomNickname, randomPassword);
-    }
-
-    @Test
-    public void postingUserTest() {
         assertResponseStatusIs201CREATED(response);
+
+        restTemplate = restTemplate.withBasicAuth(randomNickname, randomPassword);
     }
 
     private UserRegisterRequest createRequest(String randomEmail, String randomNickname, String randomPassword) {
